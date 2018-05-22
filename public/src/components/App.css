@@ -1,0 +1,17 @@
+.button-action {
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 6px;
+  box-sizing: border-box;
+  height: 25px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.button-blue {
+  background-color: #44a3f8;
+}
+
+.button-orange {
+  background-color: #ef8542;
+}
