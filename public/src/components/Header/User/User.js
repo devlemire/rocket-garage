@@ -9,7 +9,7 @@ export default class User extends Component {
         <img className="User-profile-picture" src={data.profile_picture} />
         <span className="User-name">{data.username}</span>
         <span className="User-dropdown">
-          <i class="fas fa-angle-down" />
+          <i className="fas fa-angle-down" />
         </span>
       </section>
     )

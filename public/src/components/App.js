@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import './App.css'
 import Header from './Header'
 import axios from 'axios'
+import config from '../config'
 
 class App extends Component {
   logout() {
-    axios.post('/api/auth/logout')
+    axios.post(config.api.auth.logout)
   }
 
   render() {

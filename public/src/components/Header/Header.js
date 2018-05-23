@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Guest from './Guest'
 import User from './User'
 import axios from 'axios'
+import config from '../../config'
 
 export default class Header extends Component {
   constructor() {
@@ -18,7 +19,7 @@ export default class Header extends Component {
     // When the component mounts we need to check if the user is logged in
     // The endpoint returns a 403 if the user is not authenticated
     axios
-      .post('/api/auth/check')
+      .post(config.api.auth.check)
       .then(r => {
         this.setState({ loggedIn: true, user: r.data })
       })
@@ -29,7 +30,7 @@ export default class Header extends Component {
 
   logIn(email, password) {
     axios
-      .post('/api/auth/login', { email, password })
+      .post(config.api.auth.login, { email, password })
       .then(r => {
         this.setState({ loggedIn: true, user: r.data })
       })
