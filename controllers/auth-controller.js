@@ -5,7 +5,7 @@ module.exports = {
   login: async (req, res) => {
     try {
       const db = req.app.get('db')
-      const { email, password } = req.body
+      const { email, password, rememberMe } = req.body
 
       // Make sure the user is not already logged in
       if (req.session.user) return res.status(409).send(req.session.user)
@@ -28,7 +28,7 @@ module.exports = {
       delete user.password
 
       // Send back the user to the client & add the user to the session
-      addUserToSession(req.session, user)
+      addUserToSession(req.session, user, rememberMe)
       res.status(200).send(user)
     } catch (err) {
       console.error('login method failed in auth-controller.js:', err)
@@ -40,6 +40,9 @@ module.exports = {
     try {
       const db = req.app.get('db')
       const { email, username, password } = req.body
+
+      // Make sure the user is not already logged in
+      if (req.session.user) return res.status(409).send(req.session.user)
 
       // Hash the user's password
       const hashedPassword = await bcrypt.hash(password, 10)
@@ -55,7 +58,7 @@ module.exports = {
       delete user.password
 
       // Send back the user to the requesting client && add them to the session
-      addUserToSession(req.session, user)
+      addUserToSession(req.session, user, false)
       res.status(200).send(user)
     } catch (err) {
       console.error('register method failed in auth-controller.js:', err)
@@ -76,7 +79,6 @@ module.exports = {
   isLoggedIn: (req, res) => {
     // req.session.user will only exist if a user has logged in through the login method
     if (req.session.user) {
-      console.log('The current loggedIn user is:', req.session.user)
       res.status(200).send(req.session.user)
     } else {
       res.status(403).send('Not logged in')

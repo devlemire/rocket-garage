@@ -28,9 +28,9 @@ export default class Header extends Component {
       })
   }
 
-  logIn(email, password) {
+  logIn(email, password, rememberMe) {
     axios
-      .post(config.api.auth.login, { email, password })
+      .post(config.api.auth.login, { email, password, rememberMe })
       .then(r => {
         this.setState({ user: r.data })
       })

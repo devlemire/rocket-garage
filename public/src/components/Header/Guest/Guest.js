@@ -10,6 +10,7 @@ export default class Guest extends Component {
       email: '',
       password: '',
       modalOpen: false,
+      rememberMe: false,
       errors: []
     }
 
@@ -23,7 +24,7 @@ export default class Guest extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const { email, password } = this.state
+    const { email, password, rememberMe } = this.state
 
     let errors = []
 
@@ -33,7 +34,7 @@ export default class Guest extends Component {
     if (errors.length > 0) return this.setState({ modalOpen: true, errors })
 
     // There are no form errors, time to log in the guest
-    this.props.logInFn(email, password)
+    this.props.logInFn(email, password, rememberMe)
     this.setState({ email: '', password: '' })
   }
 
@@ -41,8 +42,13 @@ export default class Guest extends Component {
     this.setState({ modalOpen: false })
   }
 
+  toggleRememberMe = () => {
+    this.setState({ rememberMe: !this.state.rememberMe })
+  }
+
   render() {
-    const { email, password } = this.state
+    const { email, password, rememberMe } = this.state
+
     return (
       <section className="Header-guest-container">
         <div className="Header-right-top">
@@ -76,7 +82,11 @@ export default class Guest extends Component {
         </div>
 
         <div className="Header-right-bottom">
-          <input type="checkbox" id="Header-remember-checkbox" />
+          <input
+            type="checkbox"
+            id="Header-remember-checkbox"
+            onChange={this.toggleRememberMe}
+          />
           <label htmlFor="Header-remember-checkbox">Remember Me?</label>
 
           <span style={{ marginLeft: '20px' }}>Reset Password</span>

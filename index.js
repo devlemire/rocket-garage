@@ -17,6 +17,7 @@ const massive = require('massive')
 const session = require('express-session')
 const redis = require('redis')
 const RedisStore = require('connect-redis')(session)
+const timeUtils = require('./utils/time-utils')
 
 const app = express()
 app.use(bodyParser.json())
@@ -26,7 +27,7 @@ app.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false, expires: 1000 * 60 * 60 * 24 }, // This equals one day
+    cookie: { secure: false, maxAge: timeUtils.miliseconds.oneDay }, // This equals one day
     store: new RedisStore({ host: REDIS_HOST, port: REDIS_PORT })
   })
 )

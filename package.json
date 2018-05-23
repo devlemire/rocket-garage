@@ -10,11 +10,15 @@
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "express-joi-middleware": "^1.0.0",
     "express-session": "^1.15.6",
+    "joi": "^13.3.0",
     "massive": "^4.8.2",
     "redis": "^2.8.0"
   },
   "nodemonConfig": {
-    "ignore": ["public/"]
+    "ignore": [
+      "public/"
+    ]
   }
 }

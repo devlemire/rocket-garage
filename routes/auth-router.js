@@ -1,9 +1,20 @@
 const Router = require('express').Router()
 const authController = require('../controllers/auth-controller')
-const authMiddleware = require('../middleware/auth-middleware')
+const expressJoi = require('express-joi-middleware')
+const joiUtils = require('../utils/joi-utils')
 
-Router.post('/login', authMiddleware, authController.login)
-Router.post('/register', authMiddleware, authController.register)
+Router.post(
+  '/login',
+  expressJoi(joiUtils.schemas.login, joiUtils.options),
+  authController.login
+)
+
+Router.post(
+  '/register',
+  expressJoi(joiUtils.schemas.register, joiUtils.options),
+  authController.register
+)
+
 Router.post('/logout', authController.logout)
 Router.post('/check', authController.isLoggedIn)
 
