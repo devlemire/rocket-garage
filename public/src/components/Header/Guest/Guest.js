@@ -78,6 +78,8 @@ export default class Guest extends Component {
         <div className="Header-right-bottom">
           <input type="checkbox" id="Header-remember-checkbox" />
           <label htmlFor="Header-remember-checkbox">Remember Me?</label>
+
+          <span style={{ marginLeft: '20px' }}>Reset Password</span>
         </div>
 
         <Modal

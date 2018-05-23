@@ -8,7 +8,6 @@ export default class Header extends Component {
   constructor() {
     super()
     this.state = {
-      loggedIn: false,
       user: null
     }
 
@@ -22,10 +21,10 @@ export default class Header extends Component {
     axios
       .post(config.api.auth.check)
       .then(r => {
-        this.setState({ loggedIn: true, user: r.data })
+        this.setState({ user: r.data })
       })
       .catch(err => {
-        this.setState({ loggedIn: false })
+        this.setState({ user: null })
       })
   }
 
@@ -33,23 +32,23 @@ export default class Header extends Component {
     axios
       .post(config.api.auth.login, { email, password })
       .then(r => {
-        this.setState({ loggedIn: true, user: r.data })
+        this.setState({ user: r.data })
       })
       .catch(err => {
-        this.setState({ loggedIn: false })
+        this.setState({ user: null })
       })
   }
 
   logOut() {
     axios.post(config.api.auth.logout).then(r => {
-      this.setState({ loggedIn: false, user: null })
+      this.setState({ user: null })
     })
 
     // TODO: handle logout failing?
   }
 
   render() {
-    const { loggedIn, user } = this.state
+    const { fetchedData, user } = this.state
 
     return (
       <header>
@@ -66,7 +65,7 @@ export default class Header extends Component {
         </section>
 
         <section className="Header-right">
-          {loggedIn ? (
+          {user ? (
             <User data={user} logOutFn={this.logOut} />
           ) : (
             <Guest logInFn={this.logIn} />
