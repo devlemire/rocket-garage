@@ -1,2 +1,2 @@
-INSERT INTO users (email, password) VALUES (${email}, ${password})
+INSERT INTO users (email, username, password) VALUES (${email}, ${username}, ${password})
 RETURNING *;

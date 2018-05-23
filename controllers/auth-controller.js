@@ -39,14 +39,18 @@ module.exports = {
   register: async (req, res) => {
     try {
       const db = req.app.get('db')
-      const { email, password } = req.body
+      const { email, username, password } = req.body
 
       // Hash the user's password
       const hashedPassword = await bcrypt.hash(password, 10)
 
       // Will go to catch block if email is taken or SQL fails
       // Destructure the returned array from the massive ORM
-      const [user] = await db.register({ email, password: hashedPassword })
+      const [user] = await db.register({
+        email,
+        username,
+        password: hashedPassword
+      })
       // Don't send the hashed password back to the client
       delete user.password
 

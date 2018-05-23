@@ -7,7 +7,7 @@ export default class User extends Component {
       <section className="User-container">
         <input className="User-search-input" placeholder="Search..." />
         <img className="User-profile-picture" src={data.profile_picture} />
-        <span className="User-name">{data.email}</span>
+        <span className="User-name">{data.username}</span>
         <span className="User-dropdown">
           <i class="fas fa-angle-down" />
         </span>
