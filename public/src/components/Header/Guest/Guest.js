@@ -47,7 +47,7 @@ export default class Guest extends Component {
   }
 
   render() {
-    const { email, password, rememberMe } = this.state
+    const { email, password } = this.state
 
     return (
       <section className="Header-guest-container">

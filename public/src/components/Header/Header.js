@@ -48,7 +48,7 @@ export default class Header extends Component {
   }
 
   render() {
-    const { fetchedData, user } = this.state
+    const { user } = this.state
 
     return (
       <header>
