@@ -18,6 +18,7 @@ const session = require('express-session')
 const redis = require('redis')
 const RedisStore = require('connect-redis')(session)
 const timeUtils = require('./utils/time-utils')
+const path = require('path')
 
 const app = express()
 app.use(bodyParser.json())

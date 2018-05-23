@@ -8,7 +8,7 @@ module.exports = {
       const { email, password, rememberMe } = req.body
 
       // Make sure the user is not already logged in
-      if (req.session.user) return res.status(409).send(req.session.user)
+      if (req.session.user) return res.status(200).send(req.session.user)
 
       // The user is not logged in at this point. Time to see if they have the right email/password combination
       // Find a user by email

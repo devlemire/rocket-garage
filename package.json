@@ -14,6 +14,7 @@
     "express-session": "^1.15.6",
     "joi": "^13.3.0",
     "massive": "^4.8.2",
+    "path": "^0.12.7",
     "redis": "^2.8.0"
   },
   "nodemonConfig": {

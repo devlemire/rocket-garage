@@ -34,7 +34,7 @@ export default class Guest extends Component {
     if (errors.length > 0) return this.setState({ modalOpen: true, errors })
 
     // There are no form errors, time to log in the guest
-    this.props.logInFn(email, password, rememberMe)
+    this.props.logInFn({ email, password, rememberMe })
     this.setState({ email: '', password: '' })
   }
 
