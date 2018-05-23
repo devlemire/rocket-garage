@@ -40,3 +40,13 @@
   color: #aaa7a6;
   cursor: pointer;
 }
+
+.User-right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.User-right:hover .ActionMenu-container {
+  display: block;
+}

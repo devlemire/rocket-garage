@@ -13,6 +13,7 @@ export default class Header extends Component {
     }
 
     this.logIn = this.logIn.bind(this)
+    this.logOut = this.logOut.bind(this)
   }
 
   componentDidMount() {
@@ -39,6 +40,14 @@ export default class Header extends Component {
       })
   }
 
+  logOut() {
+    axios.post(config.api.auth.logout).then(r => {
+      this.setState({ loggedIn: false, user: null })
+    })
+
+    // TODO: handle logout failing?
+  }
+
   render() {
     const { loggedIn, user } = this.state
 
@@ -57,7 +66,11 @@ export default class Header extends Component {
         </section>
 
         <section className="Header-right">
-          {loggedIn ? <User data={user} /> : <Guest logInFn={this.logIn} />}
+          {loggedIn ? (
+            <User data={user} logOutFn={this.logOut} />
+          ) : (
+            <Guest logInFn={this.logIn} />
+          )}
         </section>
       </header>
     )

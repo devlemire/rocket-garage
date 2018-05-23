@@ -1,0 +1,21 @@
+.ActionMenu-container {
+  position: absolute;
+  padding: 11px 20px;
+  background: #fff;
+  box-shadow: 0 1px 2px #e7e3e1;
+  margin-top: 33px;
+  display: none;
+}
+
+.ActionMenu-list {
+  color: #ff7f2b;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  font-size: 12px;
+}
+
+.ActionMenu-list li:hover {
+  color: #00a3ff;
+  cursor: pointer;
+}
