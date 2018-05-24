@@ -51,7 +51,7 @@ class Login extends Component {
                   type="email"
                   name="email"
                   required
-                  className="Login-content-text-input"
+                  className="input-blue"
                 />
                 <input
                   style={{ width: '100%' }}
@@ -61,7 +61,7 @@ class Login extends Component {
                   type="password"
                   name="password"
                   required
-                  className="Login-content-text-input"
+                  className="input-blue"
                 />
 
                 <input

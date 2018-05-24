@@ -15,3 +15,25 @@
 .button-orange {
   background-color: #ef8542;
 }
+
+.input-blue {
+  padding: 15px 20px;
+  border: 1px solid rgba(0, 163, 255, 0.3);
+  border-radius: 2px;
+  outline: none;
+  font-weight: 400;
+  font-size: 17px;
+  margin-bottom: 30px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.input-blue:focus {
+  border: 1px solid #00a3ff;
+  box-shadow: 0 1px 2px rgba(0, 163, 255, 0.4);
+}
+
+.select-blue {
+  border: 1px solid rgba(0, 163, 255, 0.3);
+  /* border-radius: 2px; */
+}

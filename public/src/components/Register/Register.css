@@ -13,3 +13,11 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
+.Register-content-left {
+  width: 595px;
+}
+
+.Register-content-top {
+  margin-bottom: 80px;
+}
