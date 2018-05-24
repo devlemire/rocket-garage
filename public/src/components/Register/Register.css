@@ -21,3 +21,64 @@
 .Register-content-top {
   margin-bottom: 80px;
 }
+
+.Register-content-top h1 {
+  font-weight: 600;
+  line-height: 1.4em;
+  letter-spacing: 2px;
+  font-size: 36px;
+  margin-top: 0px;
+}
+
+.Register-content-top span {
+  color: #666;
+  line-height: 1.4em;
+  font-size: 13px;
+}
+
+.Register-needs-parent-container {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  border-color: #f1f1f1;
+  border-radius: 4px;
+  padding: 15px;
+  padding-bottom: 35px;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.Register-needs-parent-container div {
+  width: 100%;
+}
+
+.Register-needs-parent-right h4 {
+  margin-top: 0;
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+
+.ParentEmail-input {
+  padding-left: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 30px;
+}
+
+.Register-content-left label {
+  line-height: 1.4em;
+  font-size: 14px;
+}
+
+.Register-label-container {
+  margin-bottom: 15px;
+}
+
+.Register-submit-button {
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 10px 12px 9px 15px;
+  letter-spacing: 2px;
+  font-size: 14px;
+}

@@ -7,8 +7,9 @@ export default class InputWithLabel extends Component {
     selectedOption: this.props.data ? this.props.data[0].value : ''
   }
 
-  handleChange = selected => {
-    this.setState({ selectedOption: selected.value })
+  updateState = (prop, val) => {
+    this.setState({ [prop]: val })
+    this.props.updateFn(this.props.stateProp, val)
   }
 
   render() {
@@ -20,7 +21,10 @@ export default class InputWithLabel extends Component {
       autoComplete,
       data,
       containerWidth,
-      selectWidth
+      selectWidth,
+      noMargin,
+      stateProp,
+      updateFn
     } = this.props
 
     const { selectedOption } = this.state
@@ -43,15 +47,19 @@ export default class InputWithLabel extends Component {
             className="select-blue"
             name="form-field-name"
             value={selectedOption}
-            onChange={this.handleChange}
+            onChange={selected =>
+              this.updateState('selectedOption', selected.value)
+            }
             options={data}
           />
         ) : (
           <input
             className="input-blue"
+            style={{ margin: noMargin ? '0px' : '' }}
             placeholder={placeholder}
             type={inputType}
             autoComplete={autoComplete}
+            onChange={e => updateFn(stateProp, e.target.value)}
           />
         )}
       </div>

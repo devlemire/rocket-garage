@@ -23,7 +23,22 @@ module.exports = {
           .required(),
         username: Joi.string()
           .min(1)
-          .required()
+          .required(),
+        confirmPassword: Joi.string()
+          .min(1)
+          .required(),
+        region: Joi.string()
+          .min(1)
+          .required(),
+        country: Joi.string()
+          .min(1)
+          .required(),
+        needsParent: Joi.boolean().required(),
+        parentEmail: Joi.string()
+          .allow('')
+          .optional(),
+        notifyMe: Joi.boolean().required(),
+        acceptedTerms: Joi.boolean()
       }
     }
   },
