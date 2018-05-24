@@ -16,12 +16,16 @@ const CHECK = 'CHECK'
   TODO: 
     Handle login rejection
     Handle logout rejection
+    Handle register rejection
 */
 
 // Reducer
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN + '_FULFILLED':
+      return Object.assign({}, state, { user: action.payload.data })
+
+    case REGISTER + '_FULFILLED':
       return Object.assign({}, state, { user: action.payload.data })
 
     case LOGOUT + '_FULFILLED':
@@ -39,10 +43,18 @@ export default function authReducer(state = initialState, action) {
 }
 
 // Action Creators
-export function login(requestBody) {
+export function login(requestBody, history) {
+  const promise = axios
+    .post(config.api.auth.login, requestBody)
+    .then(r => {
+      history.push('/')
+      return r
+    })
+    .catch(r => r)
+
   return {
     type: LOGIN,
-    payload: axios.post(config.api.auth.login, requestBody)
+    payload: promise
   }
 }
 
@@ -57,5 +69,20 @@ export function check() {
   return {
     type: CHECK,
     payload: axios.post(config.api.auth.check)
+  }
+}
+
+export function register(requestBody, history) {
+  const promise = axios
+    .post(config.api.auth.register, requestBody)
+    .then(r => {
+      history.push('/')
+      return r
+    })
+    .catch(r => r)
+
+  return {
+    type: REGISTER,
+    payload: promise
   }
 }

@@ -1,0 +1,105 @@
+.Login-container {
+  min-width: 100%;
+  padding: 50px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.Login-content {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.Login-content h1 {
+  color: #372f2c;
+  font-size: 35px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.Login-bottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.Login-content-left {
+  width: 595px;
+  min-height: 283px;
+  display: inline-block;
+}
+
+.Login-content-left form button {
+  display: block;
+}
+
+.Login-content-text-input {
+  padding: 15px 20px;
+  border: 1px solid rgba(0, 163, 255, 0.3);
+  border-radius: 2px;
+  outline: none;
+  font-weight: 400;
+  font-size: 17px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.Login-content-text-input:focus {
+  border: 1px solid #00a3ff;
+  box-shadow: 0 1px 2px rgba(0, 163, 255, 0.4);
+}
+
+.Login-content-left button {
+  background-color: #00a3ff;
+  color: #fff;
+  border-radius: 2px;
+  border: none;
+  padding: 10px 12px 9px 15px;
+  font-size: 15px;
+  margin-top: 27px;
+}
+
+.Login-content-right {
+  width: 545px;
+  display: inline-block;
+  background-color: #00a3ff;
+  color: #fff;
+  padding: 15px 20px 17px 20px;
+  margin-left: 50px;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+.Login-content-right h1 {
+  border-bottom: solid thin rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 19px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.Login-content-right span {
+  font-size: 11px;
+  font-weight: 100;
+}
+
+.Login-content-right button {
+  display: block;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  box-shadow: 0 1px 5px rgba(0, 163, 255, 0.3);
+  padding: 10px 12px 9px 15px;
+}
+
+#Login-remember-checkbox {
+  border: 1px solid #00a3ff;
+}

@@ -26,13 +26,6 @@ export default class Guest extends Component {
     e.preventDefault()
     const { email, password, rememberMe } = this.state
 
-    let errors = []
-
-    if (email.length === 0) errors.push('Email is required')
-    if (password.length === 0) errors.push('Password is required')
-
-    if (errors.length > 0) return this.setState({ modalOpen: true, errors })
-
     // There are no form errors, time to log in the guest
     this.props.logInFn({ email, password, rememberMe })
     this.setState({ email: '', password: '' })
@@ -60,6 +53,7 @@ export default class Guest extends Component {
               autoComplete="current-email"
               onChange={e => this.updateState('email', e.target.value)}
               value={email}
+              required
             />
 
             <input
@@ -69,6 +63,7 @@ export default class Guest extends Component {
               autoComplete="current-password"
               onChange={e => this.updateState('password', e.target.value)}
               value={password}
+              required
             />
 
             <button className="button-action button-blue mr-4" type="submit">
