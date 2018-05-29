@@ -28,7 +28,7 @@ app.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false, maxAge: timeUtils.miliseconds.oneDay }, // This equals one day
+    cookie: { secure: false, maxAge: timeUtils.miliseconds.oneDay },
     store: new RedisStore({ host: REDIS_HOST, port: REDIS_PORT })
   })
 )
@@ -42,26 +42,27 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(`${__dirname}/public/build/index.html`))
 })
 
-function startServer() {
-  massive({
-    host: DB_HOST,
-    port: DB_PORT,
-    database: DB_DATABASE,
-    user: DB_USER,
-    password: DB_PASSWORD,
-    ssl: false,
-    poolSize: 10
-  })
-    .then(instance => {
-      console.log('Massive ORM successfully connected to DB.')
-      app.set('db', instance)
-      app.listen(SERVER_PORT || 3001, () =>
-        console.log(`Server listening on port ${SERVER_PORT || 3001}`)
-      )
+async function startServer() {
+  try {
+    const instance = await massive({
+      host: DB_HOST,
+      port: DB_PORT,
+      database: DB_DATABASE,
+      user: DB_USER,
+      password: DB_PASSWORD,
+      ssl: false,
+      poolSize: 10
     })
-    .catch(err => {
-      console.error('Massive ORM could not connect to the DB:', err)
-    })
+
+    console.log('Massive ORM successfully connected to DB.')
+
+    app.set('db', instance)
+    app.listen(SERVER_PORT || 3001, () =>
+      console.log(`Server listening on port ${SERVER_PORT || 3001}`)
+    )
+  } catch (err) {
+    console.error('Massive ORM could not connect to the DB:', err)
+  }
 }
 
 startServer()

@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt')
-const { sanitizeBody, addUserToSession } = require('../utils/auth-utils')
+const { addUserToSession } = require('../utils/auth-utils')
 
 module.exports = {
   login: async (req, res) => {
